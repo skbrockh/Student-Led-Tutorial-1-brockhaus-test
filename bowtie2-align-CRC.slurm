@@ -10,25 +10,19 @@
 
 # Load required software
 module load bowtie2/2.4.4
-module load samtools
-module load bcftools
 
 # Define file paths and directories
 WORKDIR="/ocean/projects/agr250001p/your-username"
 READS_1="$WORKDIR/SRR16574651_1.fastq"
 READS_2="$WORKDIR/SRR16574651_2.fastq"
 REFERENCE="$WORKDIR/Homo_sapiens.GRCh38.dna.alt.fa"
-SAM_OUTPUT="$WORKDIR/SRR16574651.sam"
-SORTED_BAM="$WORKDIR/SRR16574651_sorted.bam"
-BCF_OUTPUT="$WORKDIR/SRR16574651.bcf"
-VCF_OUTPUT="$WORKDIR/SRR16574651.vcf"
-COMPRESSED_VCF="$WORKDIR/SRR16574651.vcf.gz"
+SAM_OUTPUT="$WORKDIR/aligned.sam"
 
 #echo "Indexing reference genome..."
-#bowtie2-build $REFERENCE human_genome_reference
+#bowtie2-build --threads 16 $REFERENCE reference_index
 
 echo "Running Bowtie2..."
-bowtie2 --very-fast -p 16 -x $REFERENCE -1 $READS_1 -2 $READS_2 -S $SAM_OUTPUT
+bowtie2 --very-fast -p 16 -x reference_index -1 $READS_1 -2 $READS_2 -S $SAM_OUTPUT
 
 echo "Converting and Sorting BAM in one step..."
 samtools view -@ 8 -bS $SAM_OUTPUT | samtools sort -@ 8 -m 10G -T /scratch/tmp_sort -o $SORTED_BAM
