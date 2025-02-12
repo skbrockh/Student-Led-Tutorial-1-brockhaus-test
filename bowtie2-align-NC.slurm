@@ -22,6 +22,6 @@ SAM_OUTPUT="$WORKDIR/SRR16574675.sam"
 #bowtie2-build --threads 16 $REFERENCE reference_index
 
 echo "Running Bowtie2..."
-bowtie2 --very-fast -p 16 -x $REFERENCE -1 $READS_1 -2 $READS_2 -S $SAM_OUTPUT
+bowtie2 --very-fast -p 16 -x reference_index -1 $READS_1 -2 $READS_2 -S $SAM_OUTPUT
 
 echo "Pipeline completed successfully!"
