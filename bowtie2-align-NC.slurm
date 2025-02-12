@@ -16,7 +16,7 @@ WORKDIR="/ocean/projects/agr250001p/your-username"
 READS_1="$WORKDIR/SRR16574675_1.fastq"
 READS_2="$WORKDIR/SRR16574675_2.fastq"
 REFERENCE="$WORKDIR/Homo_sapiens.GRCh38.dna.alt.fa"
-SAM_OUTPUT="$WORKDIR/SRR16574675.sam"
+SAM_OUTPUT="$WORKDIR/aligned.sam"
 
 #echo "Indexing reference genome..."
 #bowtie2-build --threads 16 $REFERENCE reference_index
