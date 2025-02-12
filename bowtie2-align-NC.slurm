@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=aligned_bowtie2
+#SBATCH --job-name=SRR16574675_bowtie2
 #SBATCH --partition=RM-shared
 #SBATCH --ntasks=16
 #SBATCH --mem=31G  # Increased memory for sorting
 #SBATCH --time=04:00:00
-#SBATCH --output=aligned_bowtie2.log
+#SBATCH --output=SRR16574675_bowtie2.log
 #SBATCH --mail-user=your-email@svsu.edu
 #SBATCH --mail-type=ALL
 
