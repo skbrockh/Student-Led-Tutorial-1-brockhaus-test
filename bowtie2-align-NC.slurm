@@ -17,7 +17,7 @@ module load bcftools
 WORKDIR="/ocean/projects/agr250001p/your-username"
 READS_1="$WORKDIR/SRR16574675_1.fastq"
 READS_2="$WORKDIR/SRR16574675_2.fastq"
-REFERENCE="$WORKDIR/GCF_000001405.40_GRCh38.p14_genomic.fna"
+REFERENCE="$WORKDIR/Homo_sapiens.GRCh38.dna.alt.fa"
 SAM_OUTPUT="$WORKDIR/aligned.sam"
 SORTED_BAM="$WORKDIR/aligned_sorted.bam"
 BCF_OUTPUT="$WORKDIR/aligned.bcf"
